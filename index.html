@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-SQL Pro | Intelligent SQL Runner</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI-SQL Pro</h1>
+            <div id="serverStatus">Checking...</div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('raw')">Raw SQL</button>
+            <button class="tab-btn" onclick="switchTab('nlp')">Natural Language (AI)</button>
+        </div>
+        
+        <div id="rawTab" class="tab-content">
+            <div class="input-group">
+                <p>Execute raw T-SQL queries directly.</p>
+                <textarea id="queryInput" placeholder="SELECT TOP 10 * FROM sys.tables"></textarea>
+            </div>
+            <div class="actions">
+                <button id="runBtn" class="primary-btn">Run Raw Query</button>
+            </div>
+        </div>
+
+        <div id="nlpTab" class="tab-content hidden">
+            <div class="input-group">
+                <p>Ask in plain English (or Hebrew) what you want to find.</p>
+                <textarea id="nlpInput" placeholder="e.g., Show me the top 5 users from Israel by their creation date"></textarea>
+            </div>
+            <div class="actions">
+                <button id="nlpRunBtn" class="primary-btn">Ask AI & Execute</button>
+            </div>
+            <div id="generatedSqlContainer">
+                <div style="font-size: 11px; color: #94a3b8; margin-bottom: 5px; text-transform: uppercase; font-weight: bold;">Generated SQL:</div>
+                <code id="generatedSql"></code>
+            </div>
+        </div>
+        
+        <div id="status"></div>
+        <div id="result"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
